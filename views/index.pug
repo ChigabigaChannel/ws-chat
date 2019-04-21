@@ -13,7 +13,6 @@ html(lang="en")
 
       ws.onopen = () => {
         console.log('ws open');
-        ws.send('Test message');
       }
 
       ws.onmessage = (event) => {
@@ -22,4 +21,8 @@ html(lang="en")
 
       ws.onclose = () => {
         console.log('ws close')
+      }
+
+      window.send = (data) => {
+        ws.send(JSON.stringify(data))
       }

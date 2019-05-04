@@ -5,6 +5,7 @@ const WsController = require('./controllers/ws-controller');
 
 app.set('views', './views');
 app.set('view engine', 'pug');
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   res.render('index');

@@ -40,8 +40,9 @@ module.exports = (ws, req) => {
 
       case 'message':
         // send message to all connected users
+        const username = users.find(user => user.ws == ws).username;
         users.forEach(user => {
-          send(user.ws, {method: 'update', params: {message: data.params.message}})
+          send(user.ws, {method: 'update', params: {message: data.params.message, username:username}})
         })
         break;
     }
